@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>
+      Click on the button to copy the text from the text field. Try to paste the
+      text (e.g. ctrl+v) afterwards in a different window, to see the effect.
+    </p>
+
+    <p id="myText">01521380543</p>
+    <button class="btn" onclick="copyContent()">Copy!</button>
+
+    <h2>paste here</h2>
+    <textarea cols="30" rows="10"></textarea>
+
+    <script>
+      let text = document.getElementById("myText").innerHTML;
+      const copyContent = async () => {
+        try {
+          await navigator.clipboard.writeText(text);
+          alert("Content copied to clipboard");
+        } catch (err) {
+          alert("Failed to copy: ", err);
+        }
+      };
+    </script>
+  </body>
+</html>
